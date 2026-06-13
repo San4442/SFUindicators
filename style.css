@@ -1,0 +1,283 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background: white;
+    font-family: 'Open Sans', sans-serif;
+    padding: 32px;
+}
+.dashboard {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.header-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.10);
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-bottom: 38px;
+}
+.header-title .main-title {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    color: #1E3A5F;
+}
+.header-title .sub-title {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #6B7280;
+    margin-top: 4px;
+}
+.year-switch {
+    display: flex;
+    gap: 8px;
+}
+.year-btn {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    color: #1E3A5F;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: 0.2s;
+}
+.year-btn.active {
+    background: #3B82F6;
+    color: white;
+}
+.kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 24px;
+    margin-bottom: 38px;
+}
+.kpi-card {
+    background: white;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.10);
+    border-radius: 8px;
+    padding: 20px 16px;
+}
+.kpi-card h4 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #6B7280;
+    margin-bottom: 12px;
+    white-space: pre-line;
+}
+.kpi-value {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    color: #1E3A5F;
+    margin-bottom: 8px;
+}
+.kpi-unit {
+    font-size: 14px;
+    color: #6B7280;
+    margin-left: 4px;
+}
+.kpi-delta {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    color: #3B82F6;
+}
+.kpi-delta.positive { color: #10B981; }
+.kpi-delta.negative { color: #EF4444; }
+.charts-row {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+.institutes-card { flex: 2.5; }
+.doughnut-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.chart-card {
+    background: white;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.10);
+    border-radius: 8px;
+    padding: 20px;
+}
+.full-width { width: 100%; }
+.chart-title {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: #1E3A5F;
+    text-align: center;
+    margin-bottom: 20px;
+}
+/* Горизонтальный барчарт */
+.bar-chart-container {
+    width: 100%;
+}
+.bar-row {
+    display: grid;
+    grid-template-columns: 200px 1fr 60px;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+.bar-label {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    color: #6B7280;
+    line-height: 1.3;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 36px;
+}
+.bar-graph {
+    width: 100%;
+    z-index: 2;
+}
+.bar-fill {
+    background-color: #3B82F6;
+    height: 24px;
+    border-radius: 0 4px 4px 0;
+    transition: width 0.3s;
+    z-index: 2;
+}
+.bar-value {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    color: #6B7280;
+    text-align: right;
+    white-space: nowrap;
+    z-index: 2;
+}
+/* Шкала – только в средней колонке */
+.bar-scale-row {
+    display: grid;
+    grid-template-columns: 200px 1fr 60px;
+    gap: 12px;
+    margin-top: 16px;
+    align-items: center;
+}
+.bar-scale-wrapper {
+    width: 100%;
+}
+.bar-scale {
+    position: relative;
+    width: 100%;
+    height: 32px; /* место для чёрточек и цифр */
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 8px;
+    font-size: 12px;
+    color: #6B7280;
+}
+.bar-scale span {
+    position: absolute;
+    transform: translateX(-50%);
+    text-align: center;
+    white-space: nowrap;
+}
+.bar-scale span::before {
+    display: none;
+}
+.bar-vertical-line {
+    position: absolute;
+    top: 0;
+    bottom: 28px;  /* поднимаем низ выше цифр шкалы */
+    width: 1px;
+    background: #e5e7eb;
+    pointer-events: none;
+    z-index: 1;    /* задний план */
+}
+.bar-chart-container {
+    position: relative;
+}
+/* Круговая диаграмма */
+.doughnut-container {
+    margin: auto 5px;   /* вертикальное центрирование */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.doughnut-canvas-wrapper {
+    position: relative;
+    width: 160px;
+    height: 160px;
+}
+#doughnutChart {
+    width: 160px !important;
+    height: 160px !important;
+}
+.doughnut-center-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    pointer-events: none;
+}
+.doughnut-center-text .pps-label {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: #1E3A5F;
+}
+.doughnut-center-text .pps-value {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: #1E3A5F;
+}
+.doughnut-center-text .pps-sub {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 10px;
+    color: #6B7280;
+}
+.doughnut-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    color: #6B7280;
+    white-space: nowrap;
+}
+.legend-color {
+    width: 15px;
+    height: 15px;
+    border-radius: 4px;
+}
+@media (max-width: 1024px) {
+    .kpi-grid { grid-template-columns: repeat(2,1fr); gap: 16px; }
+    .charts-row { flex-direction: column; }
+    .institutes-card, .doughnut-card { flex: auto; }
+    .header-card { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .year-switch { align-self: flex-start; }
+    .bar-row, .bar-scale-row { grid-template-columns: 1fr 2fr 50px; gap: 8px; }
+    .bar-label { text-align: left; justify-content: flex-start; }
+}
+@media (max-width: 768px) {
+    body { padding: 16px; }
+    .kpi-grid { grid-template-columns: 1fr; }
+    .doughnut-container { flex-direction: column; }
+    .bar-row, .bar-scale-row { grid-template-columns: 1fr 1fr 40px; }
+}

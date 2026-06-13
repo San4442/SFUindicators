@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Ключевые показатели СФУ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0/dist/chartjs-plugin-datalabels.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="dashboard">
+    <div class="header-card">
+        <div class="header-title">
+            <div class="main-title">Ключевые показатели СФУ</div>
+            <div class="sub-title">Данные отчёта о самообследовании за 2023 и 2025 гг.</div>
+        </div>
+        <div class="year-switch">
+            <button class="year-btn active" data-year="2023">2023</button>
+            <button class="year-btn" data-year="2025">2025</button>
+        </div>
+    </div>
+
+    <div class="kpi-grid" id="kpiGrid"></div>
+
+    <div class="charts-row">
+        <div class="chart-card institutes-card">
+            <h3 class="chart-title">Публикации Scopus по институтам</h3>
+            <div class="bar-chart-container" id="barChartContainer"></div>
+        </div>
+        <div class="chart-card doughnut-card">
+            <h3 class="chart-title">ППС по степеням</h3>
+            <div class="doughnut-container">
+                <div class="doughnut-canvas-wrapper">
+                    <canvas id="doughnutChart" width="160" height="160"></canvas>
+                    <div class="doughnut-center-text" id="doughnutCenterText">
+                        <div class="pps-label">ППС</div>
+                        <div class="pps-value">60%</div>
+                        <div class="pps-sub">со степенью</div>
+                    </div>
+                </div>
+                <div class="doughnut-legend" id="doughnutLegend"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chart-card full-width">
+        <h3 class="chart-title">Динамика публикаций Scopus</h3>
+        <canvas id="lineChart" style="width:100%; height:auto; min-height:250px; max-height:330px"></canvas>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
