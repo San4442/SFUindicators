@@ -17,7 +17,7 @@ body {
     justify-content: space-between;
     align-items: center;
     background: white;
-    box-shadow: 0px 4px 12px rgba(0,0,0,0.10);
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
     border-radius: 8px;
     padding: 20px 24px;
     margin-bottom: 38px;
@@ -63,7 +63,7 @@ body {
 }
 .kpi-card {
     background: white;
-    box-shadow: 0px 4px 12px rgba(0,0,0,0.10);
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
     border-radius: 8px;
     padding: 20px 16px;
 }
@@ -107,7 +107,7 @@ body {
 }
 .chart-card {
     background: white;
-    box-shadow: 0px 4px 12px rgba(0,0,0,0.10);
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
     border-radius: 8px;
     padding: 20px;
 }
@@ -150,6 +150,7 @@ body {
     background-color: #3B82F6;
     height: 24px;
     border-radius: 0 4px 4px 0;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
     transition: width 0.3s;
     z-index: 2;
 }
@@ -218,6 +219,9 @@ body {
     width: 160px;
     height: 160px;
 }
+.doughnut-canvas-wrapper canvas {
+    filter: drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.15));
+}
 #doughnutChart {
     width: 160px !important;
     height: 160px !important;
@@ -265,6 +269,7 @@ body {
     width: 15px;
     height: 15px;
     border-radius: 4px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
 }
 @media (max-width: 1024px) {
     .kpi-grid { grid-template-columns: repeat(2,1fr); gap: 16px; }
